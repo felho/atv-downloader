@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASE_DIR="/Users/felho/Series/0atv"
+BASE_DIR=$(cd $(dirname $0); pwd -P)
 INPUT_LIST="$BASE_DIR/0.down.txt"
 FINISHED_LIST="$BASE_DIR/0.proc.txt"
 LOG="$BASE_DIR/0.proc.log.txt"
