@@ -43,6 +43,9 @@ class AtvVideolistFilter
   	  case 'Képlet':
   	  case 'Új Mezőgazdasági Magazin':
   	  case '700-as klub':
+  	  case 'Világhíra':
+  	  case 'Külvil�':
+  	  case 'Tetthely':
         $isFilteredOut = true;
   	    break;
   	  case 'ATV Híradó':
