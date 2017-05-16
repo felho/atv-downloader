@@ -51,18 +51,21 @@ class AtvVideoSiteScraper
     $page = $this->goutte->request('GET', self::ATV_HOST.$videoUrl);
 
     try {
-      $videoFile = $page->filter('#player')->attr('data-streamurl');
+      $videoFile = $page->filter('#flw-player')->attr('data-streamurl');
     } catch (Exception $e) {
       var_dump($videoUrl);
     }
 
-    $ip = null;
+    $host = null;
     $script = $page->filterXPath('//body/script')->filter(':contains(streamServerUrl)')->text();
-    if (preg_match('/streamServerUrl = "([0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)"/', $script, $match)) {
-      $ip = $match[1];
+
+    if (preg_match('/streamServerUrl = "([^"]+)"/', $script, $match)) {
+      $host = $match[1];
+    } else {
+      trigger_error("Unable to get the host of the media server.", E_USER_ERROR);
     }
 
-    return array($videoFile, $ip);
+    return array($videoFile, $host);
   }
 }
 ?>
