@@ -18,7 +18,7 @@ while read TABLE; do
 	mkdir -p "$BASE_DIR/$DAY"
 	OUTPUT="$BASE_DIR/$DAY/$OUTPUT_FILE"
 
-	rtmpdump -W "http://www.atv.hu/js/flowplayer/flowplayer-3.2.15.swf" --tcUrl="rtmp://$SERVERIP/mediacache/_definst_" --pageUrl="http://www.atv.hu/videok" -r "rtmp://$SERVERIP/mediacache/_definst_" -y "mp4:atv/$INPUT.mp4" -o "$OUTPUT.mp4"
+	rtmpdump -W "http://www.atv.hu/js/flowplayer/flowplayer-3.2.15.swf" --tcUrl="rtmp://$SERVERIP/mediacache/_definst_" --pageUrl="http://www.atv.hu/videok" -r "rtmp://$SERVERIP/mediacache/_definst_" -y "mp4:atv/$INPUT.mp4" --live -o "$OUTPUT.mp4"
 
 	echo "$TABLE - $?" >> $FINISHED_LIST
 done < $INPUT_LIST
