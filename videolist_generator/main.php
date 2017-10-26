@@ -1,6 +1,8 @@
 <?php
 chdir(__DIR__);
-include 'goutte.phar';
+
+require __DIR__ . '/vendor/autoload.php';
+
 include 'DateUtil.php';
 include 'AtvVideolistGenerator.php';
 include 'AtvVideolistGeneratorState.php';
