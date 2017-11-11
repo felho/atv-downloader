@@ -32,7 +32,8 @@ class AtvVideolistFilter
       case 'Start +':
       case 'Hírvita':
       case 'Valóság fővárosa':
-      case 'Világhíradó':
+      case 'Heti Napló':
+      case 'KrizShow':
         break;
   	  case 'Szókincs':
       case 'Vidám Vasárnap':
@@ -44,13 +45,21 @@ class AtvVideolistFilter
   	  case 'Új Mezőgazdasági Magazin':
   	  case '700-as klub':
   	  case 'Világhíra':
-  	  case 'Külvil�':
-  	  case 'Tetthely':
+  	  case 'Külvil�':
+      case 'Tetthely':
+      case 'Esti Frizbi':
+      case '#Bochkor':
+      case 'A nap híre':
+      case 'Fórum':
+      case 'Kőbánya Híradó':
+      case 'Időjárás-jelentés':
         $isFilteredOut = true;
   	    break;
   	  case 'ATV Híradó':
-        //$isFilteredOut = preg_match('/(Reggeli|Esti|Késő esti|Kora esti|Déli) híradó.*/', $video['title']);
-        $isFilteredOut = false;
+        $isFilteredOut = !preg_match('/(ATV Híradó (Este)? - \d{4}\.\d{2}\.\d{2}).*/', $video['title']);
+        break;
+  	  case 'Világhíradó':
+        $isFilteredOut = preg_match('/.*reggel.*/', $video['title']);
         break;
   	  default:
         $isKnownShow = false;
