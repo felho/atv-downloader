@@ -53,6 +53,7 @@ class AtvVideolistFilter
       case 'Fórum':
       case 'Kőbánya Híradó':
       case 'Időjárás-jelentés':
+      case 'Kabarépéntek':
         $isFilteredOut = true;
   	    break;
   	  case 'ATV Híradó':
