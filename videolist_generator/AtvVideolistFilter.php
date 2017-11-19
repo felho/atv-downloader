@@ -56,7 +56,7 @@ class AtvVideolistFilter
         $isFilteredOut = true;
   	    break;
   	  case 'ATV Híradó':
-        $isFilteredOut = !preg_match('/(ATV Híradó (Este)? - \d{4}\.\d{2}\.\d{2}).*/', $video['title']);
+        $isFilteredOut = !preg_match('/(ATV Híradó( Este)? - \d{4}\.\d{2}\.\d{2}).*/', $video['title']);
         break;
   	  case 'Világhíradó':
         $isFilteredOut = preg_match('/.*reggel.*/', $video['title']);
