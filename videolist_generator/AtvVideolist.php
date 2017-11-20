@@ -26,6 +26,7 @@ class AtvVideolist
     $newEntries = $this->generateDiff($currentEntries, $entries);
 
     if (!empty($newEntries)) {
+      echo implode("\n", $newEntries)."\n";
       file_put_contents($this->filename, implode("\n", $newEntries)."\n", FILE_APPEND);
     }
   }
@@ -52,7 +53,6 @@ class AtvVideolist
 
   private function generateListEntry($videoPath, $serverIp)
   {
-    echo $videoPath."\n";
     list($month, $videoFile) = explode('/', $videoPath);
     $videoFile = str_replace('.mp4', '', $videoFile);
 
